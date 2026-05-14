@@ -1,0 +1,8 @@
+﻿CREATE TABLE dbo.PortalUsers (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    username NVARCHAR(30) NOT NULL UNIQUE,
+    email NVARCHAR(120) NOT NULL UNIQUE,
+    password_hash NVARCHAR(255) NOT NULL,
+    character_class NVARCHAR(30) NOT NULL,
+    created_at DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME()
+);
