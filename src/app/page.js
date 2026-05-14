@@ -92,7 +92,7 @@ export default function HomePortal() {
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[#47d6d3]">Choose Your Path</p>
-              <h2 className="mt-2 text-3xl font-semibold text-[#f1dbb0] sm:text-4xl">Class Carousel</h2>
+              <h2 className="mt-2 text-3xl font-semibold text-[#f1dbb0] sm:text-4xl">Classes</h2>
             </div>
             <p className="hidden text-sm text-[#9cb2b8] md:block">Swipe on mobile or scroll horizontally</p>
           </div>
@@ -122,3 +122,4 @@ export default function HomePortal() {
     </main>
   );
 }
+
