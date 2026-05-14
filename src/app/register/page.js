@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import RegisterForm from "./RegisterForm";
 
 export default async function RegisterPage({ searchParams }) {
   const params = await searchParams;
@@ -6,42 +7,27 @@ export default async function RegisterPage({ searchParams }) {
   const accountName = params?.accountName || "";
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#06141c] px-4 py-10 text-[#e8dcc3] sm:px-6">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,120,120,0.35),transparent_40%),radial-gradient(circle_at_80%_10%,rgba(73,112,168,0.3),transparent_35%),linear-gradient(120deg,#0b202b,#163348_45%,#0f202a)]" />
-      <section className="relative mx-auto w-full max-w-3xl rounded-2xl border border-[#2b5a64] bg-[#07212d]/85 p-7 shadow-2xl backdrop-blur-sm sm:p-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#57ddd8]">Dragon Nest</p>
-        <h1 className="mt-3 text-3xl font-semibold text-[#f1dbb0] sm:text-4xl">Create Account</h1>
-        <p className="mt-2 text-[#c0cfd5]">Register your game account to start your adventure.</p>
+    <section className="relative overflow-hidden border-b border-[#1f4e57] px-4 py-10 sm:py-14">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_35%,rgba(74,114,170,0.4),transparent_35%),radial-gradient(circle_at_25%_25%,rgba(16,120,120,0.35),transparent_45%),linear-gradient(120deg,#0d2530,#203e57_40%,#16242f)]" />
 
-        {error ? (
-          <p className="mt-4 rounded-lg border border-rose-300/40 bg-rose-400/10 px-4 py-3 text-sm text-rose-200">{error}</p>
-        ) : null}
-
-        <form action="/api/register" method="POST" className="mt-6 space-y-4">
-          <div className="space-y-1.5">
-            <label htmlFor="accountName" className="text-sm font-medium text-[#d6e3e7]">Account Name</label>
-            <input id="accountName" name="accountName" maxLength={12} defaultValue={accountName} required className="w-full rounded-lg border border-[#2f626d] bg-[#071a23] px-3 py-2.5 text-[#e7f0f3] outline-none transition focus:border-[#57ddd8] focus:ring-2 focus:ring-[#57ddd8]/25" />
+      <div className="relative mx-auto w-full max-w-[1400px]">
+        <section className="mx-auto w-full max-w-[760px] rounded-2xl border border-[#88653a] bg-[linear-gradient(160deg,rgba(3,31,43,0.95),rgba(1,21,31,0.95))] p-6 shadow-[0_0_0_2px_rgba(23,92,100,0.5),0_20px_60px_rgba(0,0,0,0.55)] sm:p-9">
+          <div className="text-center">
+            <p className="text-xs uppercase tracking-[0.25em] text-[#47d6d3]">Dragon Nest Portal</p>
+            <h1 className="mt-3 text-4xl font-semibold text-[#f1dbb0] sm:text-5xl">Create Your Account</h1>
+            <p className="mx-auto mt-3 max-w-lg text-lg text-[#d8e4e8]">Join the world of Dragon Nest and begin your legendary adventure.</p>
           </div>
 
-          <div className="space-y-1.5">
-            <label htmlFor="password" className="text-sm font-medium text-[#d6e3e7]">Password</label>
-            <input id="password" name="password" type="password" maxLength={12} required className="w-full rounded-lg border border-[#2f626d] bg-[#071a23] px-3 py-2.5 text-[#e7f0f3] outline-none transition focus:border-[#57ddd8] focus:ring-2 focus:ring-[#57ddd8]/25" />
-          </div>
+          <RegisterForm error={error} accountName={accountName} />
 
-          <div className="space-y-1.5">
-            <label htmlFor="confirmPassword" className="text-sm font-medium text-[#d6e3e7]">Confirm Password</label>
-            <input id="confirmPassword" name="confirmPassword" type="password" maxLength={12} required className="w-full rounded-lg border border-[#2f626d] bg-[#071a23] px-3 py-2.5 text-[#e7f0f3] outline-none transition focus:border-[#57ddd8] focus:ring-2 focus:ring-[#57ddd8]/25" />
-          </div>
-
-          <button type="submit" className="w-full rounded-lg border border-[#cfa45a] bg-[#7f5a2b] px-4 py-2.5 text-sm font-semibold text-[#fbe8be] transition hover:bg-[#926636]">
-            Register Account
-          </button>
-        </form>
-
-        <div className="mt-6">
-          <Link href="/" className="text-sm font-semibold text-[#57ddd8] hover:text-[#8df7f2]">Back to Home Portal</Link>
-        </div>
-      </section>
-    </main>
+          <p className="mt-6 text-center text-lg text-[#c9d7db]">
+            Already have an account?{" "}
+            <Link href="/register" className="font-semibold text-[#29d6d8] hover:text-[#6de2e4]">
+              Login
+            </Link>
+          </p>
+        </section>
+      </div>
+    </section>
   );
 }
