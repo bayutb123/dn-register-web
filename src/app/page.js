@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function HomePortal() {
   return (
@@ -47,10 +47,11 @@ export default function HomePortal() {
 
       <footer className="border-t border-[#1f4e57] bg-[#041018]">
         <div className="mx-auto flex w-full max-w-[1300px] flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-[#8ea2a8] md:flex-row">
-          <p>� 2026 Dragon Nest Portal. All rights reserved.</p>
+          <p>© 2026 Dragon Nest Portal. All rights reserved.</p>
           <Link href="/register" className="text-[#57ddd8] hover:text-[#8df7f2]">Create your account</Link>
         </div>
       </footer>
     </main>
   );
 }
+
