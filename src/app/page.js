@@ -1,5 +1,38 @@
 ﻿import Link from "next/link";
 
+const classes = [
+  {
+    name: "Warrior",
+    description:
+      "A front-line melee fighter focused on fast close-range combos, strong physical attacks, and direct pressure.",
+  },
+  {
+    name: "Archer",
+    description:
+      "An agile ranged attacker who fights with bows, mobility, and evasive movement to stay safe while dealing damage.",
+  },
+  {
+    name: "Sorceress",
+    description:
+      "A magic caster specializing in elemental and wide-area spells, with strong burst damage and crowd control.",
+  },
+  {
+    name: "Cleric",
+    description:
+      "A durable holy fighter with defensive tools, light-based attacks, and strong party utility.",
+  },
+  {
+    name: "Academic",
+    description:
+      "A mid-range tech/alchemy class that uses cannons, gadgets, grenades, and support-oriented utility.",
+  },
+  {
+    name: "Kali",
+    description:
+      "A graceful mid-range fighter who blends dance-like movement with dark energy, spirits, and summoning themes.",
+  },
+];
+
 export default function HomePortal() {
   return (
     <main className="min-h-screen bg-[#06141c] text-[#e8dcc3]">
@@ -7,15 +40,20 @@ export default function HomePortal() {
         <div className="mx-auto flex w-full max-w-[1300px] items-center justify-between px-4 py-3">
           <div className="text-3xl font-semibold tracking-wide text-[#cfa45a]">Dragon Nest</div>
           <nav className="hidden items-center gap-6 text-sm font-semibold text-[#cfd8dc] md:flex">
-            {['Home', 'News', 'Classes', 'Dungeons', 'Events', 'Download', 'Community', 'Support'].map((item) => (
-              <a key={item} href="#" className="transition hover:text-[#6de2e4]">{item}</a>
+            {["Home", "News", "Classes", "Dungeons", "Events", "Download", "Community", "Support"].map((item) => (
+              <a key={item} href="#" className="transition hover:text-[#6de2e4]">
+                {item}
+              </a>
             ))}
           </nav>
           <div className="flex items-center gap-3">
             <Link href="/register" className="rounded-md border border-[#2f6c77] px-3 py-1.5 text-sm text-[#d7e6e8] hover:bg-[#10323a]">
               Login
             </Link>
-            <Link href="/register" className="rounded-md border border-[#cfa45a] bg-[#7f5a2b] px-4 py-1.5 text-sm font-semibold text-[#fbe8be] hover:bg-[#926636]">
+            <Link
+              href="/register"
+              className="rounded-md border border-[#cfa45a] bg-[#7f5a2b] px-4 py-1.5 text-sm font-semibold text-[#fbe8be] hover:bg-[#926636]"
+            >
               Play Now
             </Link>
           </div>
@@ -27,17 +65,21 @@ export default function HomePortal() {
         <div className="relative mx-auto w-full max-w-[1300px] px-4 py-16 lg:py-24">
           <div>
             <p className="mb-3 text-sm uppercase tracking-[0.2em] text-[#47d6d3]">An Epic Fantasy MMORPG</p>
-            <h1 className="max-w-[520px] text-5xl font-semibold leading-[1.05] text-[#f1dbb0] sm:text-6xl">
-              Begin Your Adventure
-            </h1>
+            <h1 className="max-w-[520px] text-5xl font-semibold leading-[1.05] text-[#f1dbb0] sm:text-6xl">Begin Your Adventure</h1>
             <p className="mt-5 max-w-[560px] text-base leading-relaxed text-[#d7e1e5] sm:text-lg">
               Explore vast worlds, conquer dangerous nests, and forge your legacy with allies in thrilling PvE and PvP battles.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/register" className="rounded-md border border-[#37aab0] bg-[#0e5058] px-5 py-3 text-sm font-semibold text-[#c8fbfd] hover:bg-[#136570]">
+              <Link
+                href="/register"
+                className="rounded-md border border-[#37aab0] bg-[#0e5058] px-5 py-3 text-sm font-semibold text-[#c8fbfd] hover:bg-[#136570]"
+              >
                 Download Game
               </Link>
-              <Link href="/register" className="rounded-md border border-[#cfa45a] bg-[#7f5a2b] px-5 py-3 text-sm font-semibold text-[#fbe8be] hover:bg-[#926636]">
+              <Link
+                href="/register"
+                className="rounded-md border border-[#cfa45a] bg-[#7f5a2b] px-5 py-3 text-sm font-semibold text-[#fbe8be] hover:bg-[#926636]"
+              >
                 Create Account
               </Link>
             </div>
@@ -45,13 +87,38 @@ export default function HomePortal() {
         </div>
       </section>
 
+      <section className="border-b border-[#1f4e57] bg-[#071a24]">
+        <div className="mx-auto w-full max-w-[1300px] px-4 py-12">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#47d6d3]">Choose Your Path</p>
+              <h2 className="mt-2 text-3xl font-semibold text-[#f1dbb0] sm:text-4xl">Class Carousel</h2>
+            </div>
+            <p className="hidden text-sm text-[#9cb2b8] md:block">Swipe on mobile or scroll horizontally</p>
+          </div>
+
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-color:#2a5a65_#06141c]">
+            {classes.map((item) => (
+              <article
+                key={item.name}
+                className="min-w-[85%] snap-start rounded-xl border border-[#2b5a64] bg-[#0b2430] p-5 sm:min-w-[60%] lg:min-w-[32%]"
+              >
+                <h3 className="text-2xl font-semibold text-[#7be6e1]">{item.name}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#ced8dc]">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t border-[#1f4e57] bg-[#041018]">
         <div className="mx-auto flex w-full max-w-[1300px] flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-[#8ea2a8] md:flex-row">
           <p>© 2026 Dragon Nest Portal. All rights reserved.</p>
-          <Link href="/register" className="text-[#57ddd8] hover:text-[#8df7f2]">Create your account</Link>
+          <Link href="/register" className="text-[#57ddd8] hover:text-[#8df7f2]">
+            Create your account
+          </Link>
         </div>
       </footer>
     </main>
   );
 }
-
